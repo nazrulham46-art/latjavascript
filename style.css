@@ -1,0 +1,280 @@
+/* style.css - Updated with Dark Mode, Custom Cursor, Scroll Reveal & Transitions */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* --- PENGATURAN TEMA WARNA (LIGHT & DARK MODE) --- */
+:root {
+    --bg-main: #f3f8fc;
+    --bg-header: #ffffff;
+    --bg-card: #ffffff;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --text-title: #0f172a;
+    --border-color: #e2e8f0;
+    --accent-color: #0284c7;
+    --badge-bg: #e0f2fe;
+}
+
+[data-theme="dark"] {
+    --bg-main: #0f172a;
+    --bg-header: #1e293b;
+    --bg-card: #1e293b;
+    --text-main: #94a3b8;
+    --text-muted: #94a3b8;
+    --text-title: #f8fafc;
+    --border-color: #334155;
+    --accent-color: #38bdf8;
+    --badge-bg: #1e3a8a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    /* Menyembunyikan kursor bawaan khusus untuk desktop */
+    cursor: none !important;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Efek Transisi Halaman */
+    opacity: 0;
+    animation: fadeInPage 0.5s ease forwards;
+}
+
+@keyframes fadeInPage {
+    to { opacity: 1; }
+}
+
+/* --- CUSTOM INTERACTIVE CURSOR --- */
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease, background-color 0.15s ease, width 0.15s ease, height 0.15s ease;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color);
+}
+
+.cursor-outline {
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--accent-color);
+    opacity: 0.5;
+}
+
+/* Efek saat kursor menyorot tombol/link */
+body.cursor-hover .cursor-outline {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: rgba(2, 132, 199, 0.1);
+    opacity: 0.8;
+}
+
+/* Header Clean NazrulIlham */
+header {
+    background-color: var(--bg-header);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    transition: background-color 0.3s ease;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--text-title);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+nav a.active {
+    background-color: var(--badge-bg);
+    color: var(--accent-color);
+}
+
+/* Tombol Saklar Dark Mode */
+.theme-toggle-btn {
+    background: var(--badge-bg);
+    border: none;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    padding: 8px 14px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Container Utama */
+main {
+    flex: 1;
+    max-width: 1100px;
+    width: 90%;
+    margin: 40px auto;
+}
+
+/* Hero Badge */
+.badge-center {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--badge-bg);
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 18px;
+    border-radius: 50px;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-title);
+    margin-bottom: 30px;
+}
+
+/* --- SCROLL REVEAL ANIMATION CLASSES --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* SISTEM LAYOUT KOLOM (RESPONSIF) */
+.grid-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+/* Layout Card */
+.card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 25px -5px rgba(14, 116, 144, 0.05);
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Tampilan Foto */
+.card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    background-color: var(--badge-bg);
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Ketika Layar HP / Kurang dari 600px */
+@media screen and (max-width: 600px) {
+    .grid-layout {
+        flex-direction: column;
+    }
+}
+
+/* Tombol Kapsul */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 10px 22px;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}

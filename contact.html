@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Nazrul Ilham</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .form-card {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Nazrul<span>Ilham</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="daily.html">Daily</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="badge-center"><span class="badge">Hubungi Saya</span></div>
+        <h1 class="main-title">Kirim Pesan</h1>
+
+        <div class="card form-card">
+            <!-- Tambahkan id="formKontak" untuk validasi JavaScript -->
+            <form id="formKontak">
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" id="inputNama" placeholder="Masukkan nama..." required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="inputEmail" placeholder="Masukkan email..." required>
+                </div>
+                <div class="form-group">
+                    <label>Pesan</label>
+                    <textarea id="inputPesan" rows="4" placeholder="Tulis pesan..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Pesan</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>&copy; 2026 Nazrul Ilham. All rights reserved.</footer>
+
+    <!-- HUBUNGKAN FILE JAVASCRIPT DI SINI -->
+    <script src="script.js"></script>
+</body>
+</html>
